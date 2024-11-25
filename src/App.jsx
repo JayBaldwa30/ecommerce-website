@@ -4,7 +4,7 @@ import LandingPage from "./components/Home/LandingPage";
 import NewArrival from "./components/Home/NewArrival";
 import ProductPage from "./components/Product/ProductPage";
 import ProductDetails from "./components/Product/ProductDetails";
-import Cart from "./components/Cart/Cart";
+import Cart from "./components/cart/Cart";
 import {
   createBrowserRouter,
   Route,
