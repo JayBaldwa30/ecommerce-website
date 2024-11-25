@@ -18,9 +18,7 @@ const NavigationMenuDemo = () => {
 
   return (
     <>
-    
       <div className="flex justify-between border-gray-500 border-b pb-4 pt-10 px-5 md:px-[135px]">
-
         <div className="flex justify-between py-[7px]">
           <div className="h-6 w-28 font-bold">
             <img src={logo} alt="" />
@@ -77,7 +75,6 @@ const NavigationMenuDemo = () => {
           </div>
         </div>
 
-       
         <button
           className="ml-4 md:hidden"
           onClick={() => setMenuOpen(!menuOpen)}
