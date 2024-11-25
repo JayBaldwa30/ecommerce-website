@@ -15,7 +15,7 @@ export const apiSlice = createApi({
 
     createProduct: builder.mutation({
       query: (product) => ({
-        url: "products/add",
+        url: "products/",
         method: "POST",
         body: product,
       }),
@@ -24,7 +24,7 @@ export const apiSlice = createApi({
     updateProduct: builder.mutation({
       query: ({ id, ...updates }) => ({
         url: `product/${id}`,
-        method: "PUT",
+        method: "PATCH",
         body: updates,
       }),
     }),
