@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useGetProductQuery } from "../../redux/features/apiSlice";
-import { useAddToCartMutation } from "../../redux/features/cartSlice";
+import { useAddToCartMutation } from "../../redux/features/cartslice";
 
 const CART_KEY = "cartItems";
 

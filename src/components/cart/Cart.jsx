@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import {
   useRemoveFromCartMutation,
   useUpdateQuantityMutation,
-} from "../../redux/features/cartSlice";
+} from "../../redux/features/cartslice";
 
 const CART_KEY = "cartItems";
 
