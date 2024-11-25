@@ -82,7 +82,7 @@ const NavigationMenuDemo = () => {
           <FontAwesomeIcon icon={menuOpen ? faTimes : faBars} size="lg" />
         </button>
         <div className="flex items-center hidden sm:flex">
-          <div className="hidden md:flex">
+          <div className="hidden md:flex  relative ">
             <input
               type="search"
               name="searchProduct"
@@ -90,7 +90,10 @@ const NavigationMenuDemo = () => {
               className="bg-gray-200 rounded border h-6 py-[3px] pl-5 pr-3 placeholder:text-sm"
               placeholder="What are you looking for?"
             />
-            <FontAwesomeIcon icon={faSearch} className="ml-2" />
+            <FontAwesomeIcon
+              icon={faSearch}
+              className="ml-2 absolute right-0 pr-1 pt-1"
+            />
           </div>
 
           <ul className="flex justify-center ml-4">

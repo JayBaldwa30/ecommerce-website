@@ -40,3 +40,37 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Center the toast container */
+.Toastify__toast-container {
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+}
+
+/* Style the toast */
+.custom-toast {
+  background-color: #2b6cb0 !important; /* Decent blue background */
+  color: #fff !important; /* White text */
+  border-radius: 8px !important; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important; /* Subtle shadow */
+  min-width: 300px !important; /* Minimum width */
+  max-width: 500px !important; /* Maximum width */
+  padding: 16px 24px !important; /* Padding */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Roboto", sans-serif; /* Modern font */
+  font-size: 1rem; /* Font size */
+}
+
+/* Style the toast body */
+.custom-toast-body {
+  text-align: center !important; /* Centered text */
+  font-weight: 500 !important; /* Medium font weight */
+}
+
+/* Customize the progress bar */
+.Toastify__progress-bar {
+  background: #48bb78 !important; /* Green progress bar */
+}
