@@ -1,4 +1,4 @@
-import RootLayout from "./layout/RootLayout";
+import RootLayout from "./components/layout/RootLayout";
 import About from "./components/About/About";
 import LandingPage from "./components/Home/LandingPage";
 import NewArrival from "./components/Home/NewArrival";
