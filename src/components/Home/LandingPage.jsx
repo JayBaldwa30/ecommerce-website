@@ -5,9 +5,12 @@ function LandingPage() {
     <div className="md:flex md:justify-between md:pr-[135px] md:pl-[135px] ">
       <div>
         <ul className="grid grid-cols-3 gap-1 justify-items-center border-r border-grayborder py-5  md:border-grayborder md:border-r md:flex md:flex-col md:justify-between md:pt-10 md:pr-4 md:h-[344px]">
+          <div className="flex">
           <li className="hover:underline cursor-pointer  pr-[96px]">
             Lifestyle
           </li>
+            <span className="font-bold">&gt;</span>
+          </div>
           <li className="hover:underline cursor-pointer pr-[96px]">Toys</li>
           <li className="hover:underline cursor-pointer pr-[96px]">
             Electronics

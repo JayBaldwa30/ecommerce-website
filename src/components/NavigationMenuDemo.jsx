@@ -102,11 +102,12 @@ const NavigationMenuDemo = () => {
                 type="search"
                 name="searchProduct"
                 id="searchProduct"
-                className=" transparent bg-gray-200 rounded border h-6 placeholder:text-sm"
+                className="bg-gray-200 rounded h-6 placeholder:text-sm focus:outline-none focus:ring-0 focus:bg-gray-200"
                 placeholder="What are you looking for?"
                 value={searchQuery}
                 onChange={handleSearchChange}
               />
+
               <button type="submit" className="absolute right-0 pr-3 text-lg">
                 <FontAwesomeIcon icon={faSearch} />
               </button>
