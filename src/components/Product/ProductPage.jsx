@@ -32,30 +32,45 @@ const ProductPage = () => {
   };
 
   return (
-    <div className="pt-5 md:pt-10 md:pl-[135px] md:pr-[135px]">
+    <div className="relative pt-5 md:pt-10 md:pl-[135px] md:pr-[135px]">
+      {/* Spinner overlay covering the entire page */}
+      {isFetching && (
+        <div className="absolute inset-0 z-10 flex items-center justify-center bg-white ">
+          <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500"></div>
+        </div>
+      )}
+
       <div className="flex justify-between">
         <div>
-          <h1 className=" border-l-8 border-red-600 p-4">Our Products</h1>
-          <p className="text-black text-4xl font-bold pt-4">
-            Explore Our Products
-          </p>
-        </div>
-        <div className="">
-          <button
-            onClick={handlePreviousPage}
-            disabled={page === 1 || isFetching}
-            className="px-4 py-2 rounded"
-          >
-            {isFetching && page !== 1 ? "Loading..." : "Previous"}
-          </button>
+          <div className="w-[20px] h-[40px] border-2 border-red-500 rounded-[4px] bg-red-500">
+            <h4 className="pl-[36px] pt-[10px] pb-[10px] text-red-500 text-center font-bold">
+              Products
+            </h4>
+          </div>
 
-          <button
-            onClick={handleNextPage}
-            disabled={page === totalPages || isFetching}
-            className="px-4 py-2 rounded"
-          >
-            {isFetching && page !== totalPages ? "Loading..." : "Next"}
-          </button>
+          <h1 className="font-semibold text-4xl pb-14 pt-4">
+            Explore Our Products
+          </h1>
+        </div>
+        <div className="flex gap-2">
+          {page > 1 && (
+            <button
+              onClick={handlePreviousPage}
+              disabled={isFetching}
+              className="px-4 py-2 roundedhover:underline"
+            >
+              Previous
+            </button>
+          )}
+          {page < totalPages && (
+            <button
+              onClick={handleNextPage}
+              disabled={isFetching}
+              className="px-4 py-2 rounded hover:underline"
+            >
+              Next
+            </button>
+          )}
         </div>
       </div>
 

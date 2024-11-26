@@ -3,12 +3,9 @@ import {
   useRemoveFromCartMutation,
   useUpdateQuantityMutation,
 } from "../../redux/features/cartslice";
+import { getCartItems, saveCartItems,  } from "../utils/localStorage";
 
-const CART_KEY = "cartItems";
 
-const getCartItems = () => JSON.parse(localStorage.getItem(CART_KEY)) || [];
-const saveCartItems = (items) =>
-  localStorage.setItem(CART_KEY, JSON.stringify(items));
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState(getCartItems());
