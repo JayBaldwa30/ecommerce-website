@@ -6,7 +6,7 @@ const RootLayout = () => {
     <div className="min-h-screen bg-gray-100">
       <NavigationMenuDemo />
 
-      <main className="p-6">
+      <main>
         <Outlet />
       </main>
     </div>

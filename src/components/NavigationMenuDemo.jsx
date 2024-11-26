@@ -1,29 +1,45 @@
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import logo from "../assets/logo-ecom.png";
-
-import {
-  faUser,
-  faHeart,
-  faShoppingCart,
-  faSearch,
-  faBars,
-  faTimes,
-} from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+// import logo from "../assets/logo-ecom.png";
+import { faSearch, faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import cart from "../assets/cart1.png";
+import wishlist from "../assets/wishlist.png";
 
 const NavigationMenuDemo = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
+
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/search-results?query=${searchQuery}`);
+    }
+  };
 
   return (
     <>
-      <div className="flex justify-between border-gray-500 border-b pb-4 pt-10 px-5 md:px-[135px]">
+      <div className="flex justify-between border-grayborder  border-b pb-4 pt-10 px-5 md:px-[135px]">
         <div className="flex justify-between py-[7px]">
-          <div className="h-6 w-28 font-bold">
-            <img src={logo} alt="" />
+          <div className="h-6 w-28 font-bold uppercase">
+            {/* <img src={logo} alt="logo" /> */}
+            <h3>Exclusive</h3>
           </div>
 
+          <div
+            className={`absolute top-[70px] left-0 z-50 w-full bg-white p-5 shadow-md transition-transform duration-300 ease-in-out ${
+              menuOpen ? "translate-x-0" : "-translate-x-full"
+            } md:static md:translate-x-0 md:p-0 md:shadow-none md:bg-transparent`}
+          ></div>
+        </div>
+
+        <div className="flex  justify-between  py-[7px] ">
           <div
             className={`absolute top-[70px] left-0 z-50 w-full bg-white p-5 shadow-md transition-transform duration-300 ease-in-out ${
               menuOpen ? "translate-x-0" : "-translate-x-full"
@@ -32,7 +48,7 @@ const NavigationMenuDemo = () => {
             <NavigationMenu.Root className="w-full ml-20">
               <NavigationMenu.List className="flex flex-col gap-3 md:gap-0 md:flex-row md:justify-between">
                 <NavigationMenu.Item>
-                  <NavigationMenu.Trigger className="pr-6 ">
+                  <NavigationMenu.Trigger className="pr-6">
                     <NavigationMenu.Link>
                       <Link to="/" className="hover:underline">
                         Home
@@ -40,7 +56,6 @@ const NavigationMenuDemo = () => {
                     </NavigationMenu.Link>
                   </NavigationMenu.Trigger>
                 </NavigationMenu.Item>
-
                 <NavigationMenu.Item>
                   <NavigationMenu.Trigger className="pr-6">
                     <NavigationMenu.Link>
@@ -50,7 +65,6 @@ const NavigationMenuDemo = () => {
                     </NavigationMenu.Link>
                   </NavigationMenu.Trigger>
                 </NavigationMenu.Item>
-
                 <NavigationMenu.Item>
                   <NavigationMenu.Trigger className="pr-6">
                     <NavigationMenu.Link>
@@ -60,7 +74,6 @@ const NavigationMenuDemo = () => {
                     </NavigationMenu.Link>
                   </NavigationMenu.Trigger>
                 </NavigationMenu.Item>
-
                 <NavigationMenu.Item>
                   <NavigationMenu.Trigger className="pr-6">
                     <NavigationMenu.Link>
@@ -81,30 +94,34 @@ const NavigationMenuDemo = () => {
         >
           <FontAwesomeIcon icon={menuOpen ? faTimes : faBars} size="lg" />
         </button>
+
         <div className="flex items-center hidden sm:flex">
-          <div className="hidden md:flex">
-            <input
-              type="search"
-              name="searchProduct"
-              id="searchProduct"
-              className="bg-gray-200 rounded border h-6 py-[3px] pl-5 pr-3 placeholder:text-sm"
-              placeholder="What are you looking for?"
-            />
-            <FontAwesomeIcon icon={faSearch} className="ml-2" />
+          <div className="hidden md:flex relative bg-gray-200 py-[7px] pl-5 pr-[38px] rounded">
+            <form onSubmit={handleSearchSubmit}>
+              <input
+                type="search"
+                name="searchProduct"
+                id="searchProduct"
+                className=" transparent bg-gray-200 rounded border h-6 placeholder:text-sm"
+                placeholder="What are you looking for?"
+                value={searchQuery}
+                onChange={handleSearchChange}
+              />
+              <button type="submit" className="absolute right-0 pr-3 text-lg">
+                <FontAwesomeIcon icon={faSearch} />
+              </button>
+            </form>
           </div>
 
           <ul className="flex justify-center ml-4">
             <li className="pl-5 pr-2">
-              <FontAwesomeIcon icon={faHeart} />
+              <img src={wishlist} alt="" />
             </li>
             <Link to="/cart">
               <li className="px-2">
-                <FontAwesomeIcon icon={faShoppingCart} />
+                <img src={cart} alt="" />
               </li>
             </Link>
-            <li className="px-2">
-              <FontAwesomeIcon icon={faUser} />
-            </li>
           </ul>
         </div>
       </div>

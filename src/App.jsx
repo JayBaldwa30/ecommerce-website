@@ -1,16 +1,18 @@
 import RootLayout from "./components/layout/RootLayout";
-import About from "./components/About/About";
-import LandingPage from "./components/Home/LandingPage";
-import NewArrival from "./components/Home/NewArrival";
-import ProductPage from "./components/Product/ProductPage";
-import ProductDetails from "./components/Product/ProductDetails";
+import About from "./components/about/About";
+import LandingPage from "./components/home/LandingPage";
+import NewArrival from "./components/home/NewArrival";
+import ProductPage from "./components/product/ProductPage";
+import ProductDetails from "./components/product/ProductDetails";
 import Cart from "./components/cart/Cart";
+import SearchResultsPage from "./components/product/SearchResultsPage";
 import {
   createBrowserRouter,
   Route,
   createRoutesFromElements,
   RouterProvider,
 } from "react-router-dom";
+import ContactPage from "./components/contact/ContactPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,8 +27,10 @@ const router = createBrowserRouter(
           </>
         }
       />
+      <Route path="/search-results" element={<SearchResultsPage />} />
+
       <Route path="/about" element={<About />} />
-      <Route path="contact" element={<About />} />
+      <Route path="contact" element={<ContactPage />} />
       <Route path="/products" element={<ProductPage />} />
       <Route path="/products/:id" element={<ProductDetails />} />
       <Route path="/cart" element={<Cart />} />
@@ -37,5 +41,4 @@ const router = createBrowserRouter(
 function App() {
   return <RouterProvider router={router} />;
 }
-
 export default App;
