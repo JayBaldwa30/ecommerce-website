@@ -11,7 +11,8 @@ const ProductDetails = () => {
   const { id } = useParams();
   const { data: product, error, isLoading } = useGetProductQuery(id);
   const [addToCart] = useAddToCartMutation();
-  const [buttonColour, setButtonColour] = useState("");
+  const [buttonColour, setButtonColour] = useState("decrement");
+  const [wishlistColour, setWishlistColour] = useState(true);
 
   const [quantity, setQuantity] = useState(1);
 
@@ -23,6 +24,9 @@ const ProductDetails = () => {
   const handleDecrement = () => {
     setQuantity((prev) => Math.max(1, prev - 1));
     setButtonColour("increment");
+  };
+  const handleWishlist = () => {
+    setWishlistColour((prev) => !prev);
   };
 
   const handleAddToCart = async () => {
@@ -80,13 +84,13 @@ const ProductDetails = () => {
                     <img
                       src={product.images[index % product.images.length]}
                       alt={`${product.title} - Image ${index + 1}`}
-                      className="h-[105px] w-20 object-cover"
+                      className="h-[105px] w-20 object-contain"
                     />
                   </div>
                 ))}
             </div>
 
-            <div className="flex-1 border border-gray-300 ml-4">
+            <div className="flex flex-1 border border-gray-300 ml-4">
               <img
                 src={Array.isArray(product.images) ? product.images[0] : ""}
                 alt={product.title || "Product Image"}
@@ -96,24 +100,52 @@ const ProductDetails = () => {
           </div>
 
           <div className="flex-1 ml-6 p-4">
-            <h1 className="text-4xl font-semibold text-gray-700 mb-2">
+            <h1 className="text-2xl font-semibold text-gray-700 mb-2">
               {product.title}
             </h1>
             <ReactStars
               count={5}
               value={product.rating || 3}
-              size={24}
+              size={20}
               activeColor="#ffd700"
+              classNames="w-[100px] "
             />
             <p className="text-xl font-semibold text-gray-900 mb-2">
               ${product.price}
             </p>
-            <p className="text-gray-600 mb-4 border-grayborder border-b pb-4">
+            <p className="text-gray-600 mb-4 border-grayborder border-b pb-4 text-sm">
               {product.description || "No description available"}
             </p>
-            <p className="text-gray-600 mb-4 border-grayborder">Colours:</p>
-            <p className="text-gray-600 mb-4 border-grayborder">Size:</p>
-
+            <div className="flex justify-between  items-center mb-4 w-44 h-8">
+              <p className="text-gray-600  border-grayborder items-">
+                Colours:
+              </p>
+              <div className="flex justify-between gap-5 p-1">
+                <div className="border border-grayborder w-5 h-5 flex justify-center items-center p-2  rounded-xl bg-red-600 "></div>
+                <div className="border border-grayborder w-5 h-5 flex justify-center items-center p-2  bg-green-600  rounded-xl"></div>
+                <div className="border border-grayborder w-5 h-5 flex justify-center items-center p-2  bg-black rounded-xl"></div>
+              </div>
+            </div>
+            <div className="flex justify-between  items-center mb-4 w-64 h-8">
+              <p className="text-gray-600  border-grayborder items-">Size:</p>
+              <div className="flex justify-between gap-5 p-1">
+                <div className="border border-grayborder w-5 h-5 flex justify-center items-center p-2  rounded">
+                  XS
+                </div>
+                <div className="border border-grayborder w-5 h-5 flex justify-center items-center p-2  rounded">
+                  S
+                </div>
+                <div className="border border-grayborder w-5 h-5 flex justify-center items-center p-2  rounded">
+                  M
+                </div>
+                <div className="border border-grayborder w-5 h-5 flex justify-center items-center p-2  rounded bg-red-600 text-white">
+                  L
+                </div>
+                <div className="border border-grayborder w-5 h-5 flex justify-center items-center p-2  rounded">
+                  XL
+                </div>
+              </div>
+            </div>
             <div className="flex items-center justify-between mb-4   ">
               <div className="border border-grayborder rounded">
                 <button
@@ -144,8 +176,21 @@ const ProductDetails = () => {
               >
                 Add to Cart
               </button>
-              <div className="border rounded border-grayborder">
-                <img src={wishlist} alt="" />
+              <div>
+                <button
+                  onClick={handleWishlist}
+                  className={`w-10 h-10 p-1 rounded-full border ${
+                    wishlistColour
+                      ? "bg-gray-100 border-gray-300"
+                      : " border-red-500 border-8"
+                  } transition-colors duration-300`}
+                >
+                  <img
+                    src={wishlist}
+                    alt="Wishlist Icon"
+                    className="w-full h-full object-contain"
+                  />
+                </button>
               </div>
             </div>
 
