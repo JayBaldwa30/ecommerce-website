@@ -27,7 +27,6 @@ const ProductCard = ({ product }) => {
   );
 };
 
-// Add prop validation using PropTypes
 ProductCard.propTypes = {
   product: PropTypes.shape({
     id: PropTypes.string.isRequired,

@@ -17,7 +17,7 @@ const SearchResultsPage = () => {
       try {
         const response = await fetch("https://dummyjson.com/products");
         const data = await response.json();
-        setProducts(data.products); // Assuming your API returns a list of products
+        setProducts(data.products); 
       } catch (error) {
         console.error("Error fetching products:", error);
       } finally {

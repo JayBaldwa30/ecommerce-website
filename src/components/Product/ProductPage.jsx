@@ -33,7 +33,6 @@ const ProductPage = () => {
 
   return (
     <div className="relative pt-5 md:pt-10 md:pl-[135px] md:pr-[135px]">
-      {/* Spinner overlay covering the entire page */}
       {isFetching && (
         <div className="absolute inset-0 z-10 flex items-center justify-center bg-white ">
           <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500"></div>

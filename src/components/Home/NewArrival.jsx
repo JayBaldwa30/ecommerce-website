@@ -48,7 +48,7 @@ function NewArrival() {
             />
             <div className="absolute bottom-0 flex flex-col text-white p-8 w-full">
               <div>
-                <h2 className="text-2xl font-bold">Woman's Fashion</h2>
+                <h2 className="text-2xl font-bold">Woman&apos;s Fashion</h2>
                 <p className="text-sm my-1 break-words">
                   Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                   Maxime, error.

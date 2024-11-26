@@ -1,14 +1,7 @@
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import logo from "../assets/logo-ecom.png";
-import {
-  faUser,
-  faHeart,
-  faShoppingCart,
-  faSearch,
-  faBars,
-  faTimes,
-} from "@fortawesome/free-solid-svg-icons";
+// import logo from "../assets/logo-ecom.png";
+import { faSearch, faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import cart from "../assets/cart1.png";
@@ -16,19 +9,17 @@ import wishlist from "../assets/wishlist.png";
 
 const NavigationMenuDemo = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState(""); // Track search input
-  const navigate = useNavigate(); // For navigating to the search results page
+  const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
 
-  // Handle search input change
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
   };
 
-  // Handle search submission
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      navigate(`/search-results?query=${searchQuery}`); // Redirect to results page
+      navigate(`/search-results?query=${searchQuery}`);
     }
   };
 

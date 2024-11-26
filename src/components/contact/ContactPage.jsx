@@ -6,12 +6,11 @@ const ContactPage = () => {
           Contact Us
         </h1> */}
         <p className="text-center text-gray-600 mb-12">
-          We'd love to hear from you! Fill out the form below!
+          We&apos;d love to hear from you! Fill out the form below!
         </p>
 
         <div className="bg-white shadow-md rounded-lg p-6 sm:p-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Contact Details */}
             <div>
               <h2 className="text-2xl font-semibold text-gray-700 mb-4">
                 Get in Touch
@@ -32,7 +31,7 @@ const ContactPage = () => {
               </ul>
             </div>
 
-            {/* Contact Form */}
+            {/*  Form */}
             <div>
               <h2 className="text-2xl font-semibold text-gray-700 mb-4">
                 Send Us a Message
