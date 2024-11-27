@@ -33,11 +33,11 @@ const ProductPage = () => {
 
   return (
     <div className="relative pt-5 md:pt-10 md:pl-[135px] md:pr-[135px]">
-      {isFetching && (
+      {/* {isFetching && (
         <div className="absolute inset-0 z-10 flex items-center justify-center bg-white ">
           <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500"></div>
         </div>
-      )}
+      )} */}
 
       <div className="flex justify-between">
         <div>
@@ -73,7 +73,12 @@ const ProductPage = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-4 mt-6 md:grid-cols-4">
+      <div className="grid grid-cols-2 gap-4 mt-6 md:grid-cols-4 relative">
+        {isFetching && (
+          <div className="absolute inset-0 z-10 flex items-center justify-center bg-white ">
+            <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500"></div>
+          </div>
+        )}
         {products.length > 0 ? (
           products.map((product) => (
             <ProductCard key={product.id} product={product} />
