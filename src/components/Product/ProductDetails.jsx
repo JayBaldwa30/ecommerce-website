@@ -51,8 +51,8 @@ const ProductDetails = () => {
 
   if (isLoading) {
     return (
-      <div className="text-3xl font-bold text-center">
-        Loading product details...
+      <div className="absolute inset-0 z-10 flex items-center justify-center bg-white ">
+        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500"></div>
       </div>
     );
   }
