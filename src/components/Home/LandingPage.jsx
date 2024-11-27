@@ -1,32 +1,28 @@
 import img from "../../assets/landingBanner.png";
+import { ChevronRightIcon } from "@radix-ui/react-icons";
 
 function LandingPage() {
   return (
     <div className="md:flex md:justify-between md:pr-[135px] md:pl-[135px] ">
-      <div>
-        <ul className="grid grid-cols-3 gap-1 justify-items-center border-r border-grayborder py-5  md:border-grayborder md:border-r md:flex md:flex-col md:justify-between md:pt-10 md:pr-4 md:h-[344px]">
-          <div className="flex">
-          <li className="hover:underline cursor-pointer  pr-[96px]">
-            Lifestyle
-          </li>
-            <span className="font-bold">&gt;</span>
-          </div>
-          <li className="hover:underline cursor-pointer pr-[96px]">Toys</li>
-          <li className="hover:underline cursor-pointer pr-[96px]">
-            Electronics
-          </li>
-          <li className="hover:underline cursor-pointer pr-[96px]">Home</li>
-          <li className="hover:underline cursor-pointer pr-[96px]">Medicine</li>
-          <li className="hover:underline cursor-pointer pr-[96px]">Sports</li>
-          <li className="hover:underline cursor-pointer pr-[96px]">Pets</li>
-          <li className="hover:underline cursor-pointer pr-[96px]">
-            Groceries
-          </li>
-          <li className="hover:underline cursor-pointer pr-[96px]">Health</li>
-        </ul>
-      </div>
+      <ul className="grid grid-cols-3 gap-1 justify-items-center md:flex md:flex-col md:justify-between md:pt-10 md:pr-4 w-[10vw]">
+        <li className="hover:underline cursor-pointer flex justify-between items-center">
+          Lifestyle
+          <ChevronRightIcon className="size-5" />
+        </li>
+        <li className="hover:underline cursor-pointer flex justify-between items-center">
+          Toys
+          <ChevronRightIcon className="size-5" />
+        </li>
+        <li className="hover:underline cursor-pointer">Electronics</li>
+        <li className="hover:underline cursor-pointer">Home</li>
+        <li className="hover:underline cursor-pointer">Medicine</li>
+        <li className="hover:underline cursor-pointer">Sports</li>
+        <li className="hover:underline cursor-pointer">Pets</li>
+        <li className="hover:underline cursor-pointer">Groceries</li>
+        <li className="hover:underline cursor-pointer">Health</li>
+      </ul>
 
-      <div className=" px-[45px] md:w-[892px] md:h-[344px] pt-10">
+      <div className="pt-10 pl-11 border-l border-grayborder ">
         <h2 className="text-center p-5 font-semibold text-xl md:hidden">
           Get the best products in the market!
         </h2>
