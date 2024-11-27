@@ -3,9 +3,7 @@ import {
   useRemoveFromCartMutation,
   useUpdateQuantityMutation,
 } from "../../redux/features/cartslice";
-import { getCartItems, saveCartItems,  } from "../utils/localStorage";
-
-
+import { getCartItems, saveCartItems } from "../utils/localStorage";
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState(getCartItems());
@@ -46,7 +44,7 @@ const Cart = () => {
           {cartItems.map((item) => (
             <li
               key={item.id}
-              className="flex justify-between items-center p-4 mb-4 border border-gray-200 rounded-lg"
+              className="flex justify-between items-center p-4 mb-4 bg-gray-100 rounded-lg"
             >
               <div>
                 <h2 className="font-semibold text-lg">{item.title}</h2>
