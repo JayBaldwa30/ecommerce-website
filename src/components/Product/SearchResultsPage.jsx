@@ -17,7 +17,7 @@ const SearchResultsPage = () => {
       try {
         const response = await fetch("https://dummyjson.com/products");
         const data = await response.json();
-        setProducts(data.products); 
+        setProducts(data.products);
       } catch (error) {
         console.error("Error fetching products:", error);
       } finally {
@@ -39,7 +39,14 @@ const SearchResultsPage = () => {
     }
   }, [searchQuery, products]);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading)
+    return (
+      <div>
+        <div className="absolute inset-0 z-10 flex items-center justify-center bg-white ">
+          <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500"></div>
+        </div>
+      </div>
+    );
   const handleClick = (id) => {
     navigate(`/products/${id}`);
   };
