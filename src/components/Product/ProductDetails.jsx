@@ -75,12 +75,12 @@ const ProductDetails = () => {
     <>
       <Toaster />
       <div className="py-10">
-        <div className="flex max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6 ">
+        <div className="flex max-w-4xl mx-auto rounded-lg p-6 ">
           <div className="flex flex-1">
             <div className="flex flex-col gap-4 h-full shrink-0">
               {Array.isArray(product.images) &&
                 Array.from({ length: 4 }).map((_, index) => (
-                  <div key={index} className="border border-gray-300 p-1">
+                  <div key={index} className="bg-gray-200 p-1">
                     <img
                       src={product.images[index % product.images.length]}
                       alt={`${product.title} - Image ${index + 1}`}
@@ -90,7 +90,7 @@ const ProductDetails = () => {
                 ))}
             </div>
 
-            <div className="flex flex-1 border border-gray-300 ml-4">
+            <div className="flex flex-1 bg-gray-200 ml-4">
               <img
                 src={Array.isArray(product.images) ? product.images[0] : ""}
                 alt={product.title || "Product Image"}
@@ -126,26 +126,34 @@ const ProductDetails = () => {
                 <div className="border border-grayborder w-5 h-5 flex justify-center items-center p-2  bg-black rounded-xl"></div>
               </div>
             </div>
-            <div className="flex justify-between  items-center mb-4 w-64 h-8">
-              <p className="text-gray-600  border-grayborder items-">Size:</p>
-              <div className="flex justify-between gap-5 p-1">
-                <div className="border border-grayborder w-5 h-5 flex justify-center items-center p-2  rounded">
-                  XS
-                </div>
-                <div className="border border-grayborder w-5 h-5 flex justify-center items-center p-2  rounded">
-                  S
-                </div>
-                <div className="border border-grayborder w-5 h-5 flex justify-center items-center p-2  rounded">
-                  M
-                </div>
-                <div className="border border-grayborder w-5 h-5 flex justify-center items-center p-2  rounded bg-red-600 text-white">
-                  L
-                </div>
-                <div className="border border-grayborder w-5 h-5 flex justify-center items-center p-2  rounded">
-                  XL
+            {[
+              "mens-shirts",
+              "mens-shoes",
+              "tops",
+              "womens-dresses",
+              "womens-shoes",
+            ].includes(product.category) && (
+              <div className="flex justify-between items-center mb-4 w-64 h-8">
+                <p className="text-gray-600 border-grayborder items-">Size:</p>
+                <div className="flex justify-between gap-5 p-1">
+                  <div className="border border-grayborder w-5 h-5 flex justify-center items-center p-2 rounded">
+                    XS
+                  </div>
+                  <div className="border border-grayborder w-5 h-5 flex justify-center items-center p-2 rounded">
+                    S
+                  </div>
+                  <div className="border border-grayborder w-5 h-5 flex justify-center items-center p-2 rounded">
+                    M
+                  </div>
+                  <div className="border border-grayborder w-5 h-5 flex justify-center items-center p-2 rounded bg-red-600 text-white">
+                    L
+                  </div>
+                  <div className="border border-grayborder w-5 h-5 flex justify-center items-center p-2 rounded">
+                    XL
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
             <div className="flex items-center justify-between mb-4   ">
               <div className="border border-grayborder rounded">
                 <button
