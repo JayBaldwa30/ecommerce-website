@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
 import PropTypes from "prop-types";
-import { Toaster } from "sonner";
 
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
