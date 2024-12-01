@@ -2,7 +2,7 @@ import RootLayout from "./components/layout/RootLayout";
 import About from "./components/about/About.jsx";
 import LandingPage from "./components/home/LandingPage.jsx";
 import NewArrival from "./components/home/NewArrival.jsx";
-import ProductPage from "./components/product/ProductPage.jsx'";
+import ProductPage from "./components/product/ProductPage.jsx";
 import ProductDetails from "./components/product/ProductDetails.jsx";
 import Cart from "./components/cart/Cart.jsx";
 import SearchResultsPage from "./components/product/SearchResultsPage.jsx";
